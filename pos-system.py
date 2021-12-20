@@ -71,11 +71,7 @@ def main():
     
     # オーダー登録
     order=Order(item_master)  
-    while True:
-        order_yn = input("オーダー登録を行いますか（N:0, Y:1):")
-        if not int(order_yn):
-            break
-        
+    while True:      
         # 入力した商品コードを登録
         item_order = input("オーダーを登録する商品コードを入力してください:")
         order.add_item_order(item_order)
@@ -85,6 +81,10 @@ def main():
         order.add_item_number(item_number)
         
         print(f'商品コード:{item_order}の商品を{item_number}個オーダー登録しました。\n')
+        
+        order_yn = input("続けてオーダー登録を行いますか？（Yes:y, No:n):")
+        if not order_yn == 'y':
+            break
     
     # お預かり金額登録
     money = input("お預かり金額を入力してください:")
